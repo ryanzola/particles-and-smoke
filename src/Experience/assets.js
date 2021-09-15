@@ -4,7 +4,8 @@ export default [
         data: {},
         items:
         [
-            { name: 'lennaTexture', source: '/assets/lenna.png', type: 'texture' },
+            { name: 'particleMaskTexure', source: '/assets/particle.png', type: 'texture' },
+            { name: 'smokeTexture', source: '/assets/smoke.png', type: 'texture' }
         ]
     }
 ]

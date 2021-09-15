@@ -1,4 +1,8 @@
 import * as THREE from 'three'
+import Gradient from './Utils/Gradient'
+import Particles from './Utils/Particles'
+import Smoke from './Utils/Smoke'
+import Vignette from './Utils/Vignette'
 
 export default class World
 {
@@ -13,26 +17,46 @@ export default class World
         {
             if(_group.name === 'base')
             {
-                this.setDummy()
+                this.setGradient()
+                this.setSmoke()
+                this.setVignette()
+                this.setParticles()
             }
         })
     }
 
-    setDummy()
-    {
-        const cube = new THREE.Mesh(
-            new THREE.BoxGeometry(1, 1, 1),
-            new THREE.MeshBasicMaterial({ map: this.resources.items.lennaTexture })
-        )
-        this.scene.add(cube)        
+    setGradient() {
+        this.gradient = new Gradient()
+    }
+
+    setParticles() {
+        this.particles = new Particles()
+    }
+
+    setSmoke() {
+        this.smoke = new Smoke()
+    }
+
+    setVignette() {
+        this.vignette = new Vignette()
     }
 
     resize()
     {
+        if(this.smoke)
+            this.smoke.resize()
     }
 
     update()
     {
+        if(this.gradient)
+            this.gradient.update()
+
+        if(this.particles)
+            this.particles.update()
+
+        if(this.smoke)
+            this.smoke.update()
     }
 
     destroy()

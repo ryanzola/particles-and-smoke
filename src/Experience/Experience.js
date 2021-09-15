@@ -8,6 +8,8 @@ import Renderer from './Renderer.js'
 import Camera from './Camera.js'
 import World from './World.js'
 
+import { Pane } from 'tweakpane'
+
 import assets from './assets.js'
 
 export default class Experience
@@ -28,6 +30,7 @@ export default class Experience
         this.sizes = new Sizes()
         this.setConfig()
         this.setStats()
+        this.setDebug()
         this.setScene()
         this.setCamera()
         this.setRenderer()
@@ -56,6 +59,13 @@ export default class Experience
         const boundings = this.targetElement.getBoundingClientRect()
         this.config.width = boundings.width
         this.config.height = boundings.height || window.innerHeight
+    }
+
+    setDebug() {
+        if(this.config.debug) {
+            this.debug = new Pane()
+            this.debug.containerElem_.style.width = '320px'
+        }
     }
 
     setStats()
