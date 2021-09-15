@@ -1,8 +1,7 @@
-# Three.js - Template - Complex
-
-🚧 This template is under construction
+# Particles and Smoke
 
 ## Setup
+
 Download [Node.js](https://nodejs.org/en/download/).
 Run this followed commands:
 
